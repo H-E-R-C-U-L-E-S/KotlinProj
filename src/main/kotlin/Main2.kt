@@ -8,8 +8,7 @@
 * მეთოდმა პარამეტრად უნდა მიიიღოს Fraction კლასის ობიექტი 👀 და ოპერაციის შემდეგ უნდა დააბრუნოს ახალი წილადი. 🐸 🐷
 */
 
-
-fun main(args: Array<String>) {
+fun main() {
 
     //წილადები
     val fraction1 = Fraction(18,36)
@@ -99,6 +98,7 @@ class Fraction(numerator: Int, denominator: Int) {
     }
 
     //წილადის წილადზე გაყოფა (აბრუნებს შეკვეცილ პასუხს)
+    //*შებრუნებულზე გამრავლება
     operator fun div(other: Fraction): Fraction{
         val d = other * Fraction(d,n)
         return truncateFraction(Fraction(d.d,d.n))
@@ -124,13 +124,14 @@ fun truncateFraction(fraction: Fraction): Fraction{
 }
 
 //gcd იგივე უსგ, ფუნქცია პოულობს 2 რიცხვის უდიდეს საერთო გამყოფს
-fun gcd(nume: Int,deno: Int): Int {
+//numerator - a
+fun gcd(numerator: Int,denominator: Int): Int {
 
-    return if (deno == 0){
-        nume
+    return if (denominator == 0){
+        numerator
     }
     else{
-        gcd(deno, nume % deno);
+        gcd(denominator, numerator % denominator)
     }
 
 }
